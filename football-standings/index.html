@@ -8,14 +8,71 @@
     <meta name="keywords" content="football, standings, league, teams">
     <meta name="author" content="srinjoy-mukherjee">
     <link rel="stylesheet" href="css/output.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="js/script.js" defer></script>
     <title> Home </title>
 </head>
 <body>
     <header class="bg-gray-200 text-black p-4 flex flex-row items-center gap-4">
-        <img src="assets/images/image.png" alt="header-img" class="h-20 w-20 object-cover">
-        <h1 class="text-2xl font-bold">Football Standings</h1>
+        <div class="container mx-auto flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex items-center gap-4">
+            <img src="assets/images/image.png" alt="header-img" class="h-20 w-20 object-cover">
+            <a href="index.html">
+                <h1 class="hidden sm:block sm:text-2xl font-bold">Football Standings</h1>
+            </a>
+            <a href="index.html">
+                <h1 class="sm:hidden font-extrabold text-5xl">FS</h1>
+            </a>
+          </div>
+      
+          <!-- Navigation Menu -->
+          <nav x-data="{ open: false }" class="relative">
+            <!-- Hamburger Button -->
+            <button @click="open = !open" class="md:hidden">
+              <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+      
+            <!-- Menu Items -->
+            <ul :class="{'block': open, 'hidden': !open}" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl md:static md:flex md:space-x-4 md:bg-transparent md:shadow-none md:w-auto md:mt-0">
+              <li><a href="#" class="block px-4 py-2 text-gray-800 md:text-black hover:bg-gray-200 md:hover:bg-gray-700">Home</a></li>
+              <li><a href="#" class="block px-4 py-2 text-gray-800 md:text-black hover:bg-gray-200 md:hover:bg-gray-700">About</a></li>
+              <li><a href="#" class="block px-4 py-2 text-gray-800 md:text-black hover:bg-gray-200 md:hover:bg-gray-700">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+    </header>      
+    
+    <main>
         
-    </header>
+            <!-- Standings Section -->
+          <section id="standings-section" class="py-8 px-4">
+            <!-- Loading Spinner -->
+            <div id="loading-spinner" class="flex flex-col h-screen justify-center items-center">
+              
+              <img src="assets/images/image.png" alt="Loading..." class="h-30 w-30 animate-bounce">
+              
+              <p class="text-lg font-semibold text-gray-700 mt-2">Loading...</p>
+            </div>
+
+            <!-- Standings Content -->
+            <div id="standings-content" class="hidden">
+              <!-- API data will be injected here -->
+            </div>
+          </section>
+          
+
+          
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 text-center fixed bottom-0 w-full">
+        <p>&copy; 2025 Football Standings</p>
+      </footer>
       
 </body>
 </html>
