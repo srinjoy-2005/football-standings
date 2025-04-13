@@ -49,9 +49,31 @@
     </header>      
     
     <main>
-        
+          <section id="choice-list" class="sm:flex sm:flex-row sm:items-start sm:justify-center gap-50 flex flex-col items-center justify-center">
+            <div id="league-list" class="flex flex-col items-center justify-center">
+              <h1 class="text-3xl font-bold text-blue-900">Select a League</h1>
+              <select id="league-select" class="flex flex-wrap gap-4">
+                <!-- League buttons will be injected here -->
+                <option value="" disabled selected>
+                  Select a league
+                </option>
+              </select>
+            </div>
+
+            <div id="season-list" class="flex flex-col items-center justify-center">
+              <h1 class="text-3xl text-blue-900">Select Season</h1>
+              <select id="season-select" class="flex flex-wrap gap-4">
+                <!-- Season buttons will be injected here -->
+                <option value="" disabled selected>
+                  Select a season
+                </option>
+              </select>
+            </div>
+          </section>
+
             <!-- Standings Section -->
-          <section id="standings-section" class="py-8 px-4">
+          <section id="standings-section" class="py-8 px-4 pb-40">
+
             <!-- Loading Spinner -->
             <div id="loading-spinner" class="flex flex-col h-screen justify-center items-center">
               
