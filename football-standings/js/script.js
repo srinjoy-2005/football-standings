@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       standingsContent.innerHTML = generateStandingsHTML(data);
     } catch (error) {
       console.error('Error fetching standings:', error);
-      loadingSpinner.innerHTML = '<p class="text-red-500">Failed to load data.</p>';
+      loadingSpinner.innerHTML = '<p class="text-red-500 text-3xl animate-ping">Failed to load data.</p>';
     }
   };
 
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectedLeague) {
       fetchSeasons(selectedLeague);
     } else {
-      seasonSelect.innerHTML = '<option value="">Select Season</option>';
+      seasonSelect.innerHTML = '<option value="">Select Season</option>';//reset
       seasonSelect.disabled = true;
     }
   });
