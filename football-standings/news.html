@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Football News</title>
+  <meta name="description" content="Watch (not so) latest football standings and updates."/>
+  <link rel="stylesheet" href="css/output.css"/>
+  <!-- No JS needed for static content -->
+</head>
+
+<body class="bg-[url('../assets/images/news-bg.png')] bg-cover bg-center bg-no-repeat min-h-screen">
+  <!-- HEADER -->
+  <header class="bg-teal-600 shadow-md text-white p-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Football News</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="index.html" class="block px-2 py-2 hover:bg-teal-700 hover:text-xl hover:rounded-full">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow p-6 max-w-6xl mx-auto">
+    <h2 class="text-xl font-semibold text-gray-200 mb-4">Latest Football News</h2>
+
+    <!-- Static YouTube News Cards -->
+    <div id="news-container" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Video Card 1 -->
+      <a href="https://www.youtube.com/watch?v=abcdef" target="_blank" class="block bg-white rounded shadow-md p-4 hover:shadow-xl transition">
+        <img src="https://img.youtube.com/vi/abcdef/hqdefault.jpg" alt="Video Thumbnail 1" class="w-full rounded mb-2">
+        <h3 class="text-lg font-semibold text-gray-800">Football Highlights: Premier League Recap</h3>
+        <p class="text-sm text-gray-500">Channel: Football Buzz</p>
+      </a>
+      <!-- Video Card 2 -->
+      <a href="https://www.youtube.com/watch?v=ghijkl" target="_blank" class="block bg-white rounded shadow-md p-4 hover:shadow-xl transition">
+        <img src="https://img.youtube.com/vi/ghijkl/hqdefault.jpg" alt="Video Thumbnail 2" class="w-full rounded mb-2">
+        <h3 class="text-lg font-semibold text-gray-800">In-Depth Analysis: Transfer Window Updates</h3>
+        <p class="text-sm text-gray-500">Channel: Football Insider</p>
+      </a>
+      <!-- Video Card 3 -->
+      <a href="https://www.youtube.com/watch?v=mnopqr" target="_blank" class="block bg-white rounded shadow-md p-4 hover:shadow-xl transition">
+        <img src="https://img.youtube.com/vi/mnopqr/hqdefault.jpg" alt="Video Thumbnail 3" class="w-full rounded mb-2">
+        <h3 class="text-lg font-semibold text-gray-800">Interview: Rising Football Stars Talk Tactics</h3>
+        <p class="text-sm text-gray-500">Channel: NextGen Football</p>
+      </a>
+      <!-- Additional cards can be added similarly -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-teal-600 text-white text-sm text-center py-3">
+    &copy; 2025 Football News Portal. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -20,3 +20,50 @@
       </a>
     </div>
   </section>
+
+  <nav x-data="{ open: false }" class="relative">
+    <!-- Hamburger Button -->
+    <button @click="open = !open" class="md:hidden">
+      <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Menu Items -->
+    <ul :class="{'block': open, 'hidden': !open}" x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 duration-500 scale-100"
+    x-transition:enter-end="transition ease-in duration-500 scale-100"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100 transform scale-100"
+    x-transition:leave-end="opacity-0 transform scale-95"  class="absolute right-0 mt-2 py-2 w-48 bg-teal-500 rounded-md shadow-xl md:static md:flex md:space-x-4 md:bg-transparent md:shadow-none md:w-auto md:mt-0">
+    <li><a href="index.html" class="block px-4 py-2 text-gray-200  md:text-blue-50 hover:bg-teal-700 hover:text-2xl md:hover:bg-violet-900 md:hover:rounded-full">Home</a></li>
+      <li><a href="about.html" class="block px-4 py-2 text-gray-200  md:text-blue-50 hover:bg-teal-700 hover:text-2xl md:hover:bg-violet-900 md:hover:rounded-full">About</a></li>
+      <li><a href="news.html" class="block px-4 py-2 text-gray-200 md:text-blue-50 hover:bg-teal-700 hover:text-2xl md:hover:bg-violet-900 md:hover:rounded-full">News</a></li>
+    </ul>
+  </nav>
+
+
+
+
+
+  const generateStandingsHTML = (data, dataBasic) => {
+    const standings = data.standings;
+    let html = `<h1 class="flex text-3xl font-bold text-shadow-cyan-800" style="font-family: 'Verdana', sans-serif;">Standings: <img class="h-10 w-10" src=${dataBasic.logos.light}> ${data.name} for Season: ${data.season} - ${data.season+1}</h1><table class="min-w-full table-auto border-collapse border border-gray-300">`;
+    html += `<thead><tr><th class=" text-2xl font-bold px-4 py-2">Position</th> <th> </th> <th class="text-2xl font-bold px-4 py-2">Club</th><th class="text-2xl font-bold px-4 py-2">Points</th></tr></thead><tbody>`;
+    standings.forEach(team => {
+      const position = team.stats.find(stat => stat.name === 'rank')?.value || '-';
+      const points = team.stats.find(stat => stat.name === 'points')?.value || '-';
+      html += `<tr>
+        <td class="px-4 py-2 text-center font-semibold text-xl">${position}</td>
+        <td class="h-10 w-10"> <img src=${team.team.logos[0]?.href}> </td>
+        <td class="px-4 py-2 text-xl font-serif">${team.team.name}</td>
+        <td class="hidden md:table-cell px-4 py-2 text-center text-xl font-semibold"></td>
+        <td class="px-4 py-2 text-center text-xl font-semibold">${points}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    return html;
+  };
